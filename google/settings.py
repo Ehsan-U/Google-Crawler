@@ -13,7 +13,6 @@ JOBDIR="crawls/google_spider-1"
 SPIDER_MODULES = ["google.spiders"]
 NEWSPIDER_MODULE = "google.spiders"
 
-ZYTE_API_KEY = "a695e32c1dfd452fb9012a59ba191836"
 
 DOWNLOAD_HANDLERS = {
     "http": "scrapy_zyte_api.ScrapyZyteAPIDownloadHandler",
