@@ -13,13 +13,13 @@ JOBDIR="crawls/google_spider-1"
 SPIDER_MODULES = ["google.spiders"]
 NEWSPIDER_MODULE = "google.spiders"
 
-
 DOWNLOAD_HANDLERS = {
     "http": "scrapy_zyte_api.ScrapyZyteAPIDownloadHandler",
     "https": "scrapy_zyte_api.ScrapyZyteAPIDownloadHandler",
 }
 DOWNLOADER_MIDDLEWARES = {
     "scrapy_zyte_api.ScrapyZyteAPIDownloaderMiddleware": 1000,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
 }
 REQUEST_FINGERPRINTER_CLASS = "scrapy_zyte_api.ScrapyZyteAPIRequestFingerprinter"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
@@ -33,7 +33,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
-
+RETRY_ENABLED = True
+RETRY_TIMES = 3
+RETRY_HTTP_CODES = [429, 302]
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs

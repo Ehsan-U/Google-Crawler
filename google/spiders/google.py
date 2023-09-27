@@ -20,10 +20,10 @@ class GoogleBot(scrapy.Spider):
 			})
 			url = "https://www.google.com/search?" + params
 			yield scrapy.Request(url, callback=self.parse, meta={
-				"zyte_api": {
-					"httpResponseBody": True,
-					"httpResponseHeaders": True,
-				}
+				# "zyte_api": {
+				# 	"httpResponseBody": True,
+				# 	"httpResponseHeaders": True,
+				# }
 			})
 
 
@@ -49,13 +49,13 @@ class GoogleBot(scrapy.Spider):
 		with open("queries.csv", 'r') as f:
 			reader = csv.reader(f)
 			next(reader)
-			for idx, row in enumerate(reader, start=1):
+			for idx, row in enumerate(reader, start=100):
 				self.queries.append({
 					"id": row[0],
 					"query": row[1]
 				})
-				# if idx == 100:
-				# 	break
+				if idx == 500:
+					break
 
 
 
