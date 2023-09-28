@@ -6,13 +6,13 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-import pathlib
 
 BOT_NAME = "google"
 JOBDIR="crawls/google_spider-1"
 SPIDER_MODULES = ["google.spiders"]
 NEWSPIDER_MODULE = "google.spiders"
 
+ZYTE_API_KEY = "a695e32c1dfd452fb9012a59ba191836"
 DOWNLOAD_HANDLERS = {
     "http": "scrapy_zyte_api.ScrapyZyteAPIDownloadHandler",
     "https": "scrapy_zyte_api.ScrapyZyteAPIDownloadHandler",
@@ -23,7 +23,6 @@ DOWNLOADER_MIDDLEWARES = {
 }
 REQUEST_FINGERPRINTER_CLASS = "scrapy_zyte_api.ScrapyZyteAPIRequestFingerprinter"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "google (+http://www.yourdomain.com)"
@@ -104,4 +103,4 @@ RETRY_HTTP_CODES = [429, 302]
 # Set settings whose default value is deprecated to a future-proof value
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 FEED_EXPORT_ENCODING = "utf-8"
-FEEDS = {"data.csv": {"format": "csv"}}
+FEEDS = {"data1.csv": {"format": "csv"}}

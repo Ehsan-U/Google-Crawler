@@ -20,7 +20,7 @@ class QuoteBot(scrapy.Spider):
 
     def parse_product(self, response):
         return {
-            "Title": response.xpath("//title/text()").get()
+            "Title": response.xpath("//title/text()").get('').strip()
         }
 
 

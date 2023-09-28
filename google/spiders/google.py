@@ -28,8 +28,9 @@ class GoogleBot(scrapy.Spider):
 
 
 	def parse(self, response, **kwargs):
-		raw_text = " ".join(list(filter(None, map(lambda x: x if x.strip() else None, response.xpath("//div[@id='main']//text()[not(ancestor::script) and not(ancestor::style)]").getall()))))
-		cleaned_text = re.sub(r"\s+", " ", raw_text).strip()
+		raw_text = " ".join(list(filter(None, map(lambda x: x if x.strip() else None, response.xpath("//div[@id='main']//text()[not(ancestor::script) and not(ancestor::style)]").getall())))).replace("More results Try again Footer Links",'')
+		match = re.search('\([0-9.]+\sseconds\)', re.sub(r"\s+", " ", raw_text))
+		cleaned_text = raw_text.split(match.group())[-1].strip() if match else raw_text
 		item = {
 			"query": response.xpath("//textarea[@aria-label='Search']/text()").get(),
 			"text": cleaned_text
@@ -46,7 +47,7 @@ class GoogleBot(scrapy.Spider):
 
 	def spider_opened(self, spider):
 		self.queries = []
-		with open("queries.csv", 'r') as f:
+		with open("queries_285k_1.csv", 'r') as f:
 			reader = csv.reader(f)
 			next(reader)
 			for idx, row in enumerate(reader, start=1):
