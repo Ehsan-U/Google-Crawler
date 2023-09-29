@@ -47,7 +47,7 @@ class GoogleBot(scrapy.Spider):
 
 	def spider_opened(self, spider):
 		self.queries = []
-		with open("queries_285k_1.csv", 'r') as f:
+		with open("queries_285k_2.csv", 'r') as f:
 			reader = csv.reader(f)
 			next(reader)
 			for idx, row in enumerate(reader, start=1):

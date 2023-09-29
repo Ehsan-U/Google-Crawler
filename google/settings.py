@@ -103,4 +103,4 @@ RETRY_HTTP_CODES = [429, 302]
 # Set settings whose default value is deprecated to a future-proof value
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 FEED_EXPORT_ENCODING = "utf-8"
-FEEDS = {"data1.csv": {"format": "csv"}}
+FEEDS = {"data2.csv": {"format": "csv"}}
