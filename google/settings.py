@@ -31,7 +31,7 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 24
 RETRY_ENABLED = True
 RETRY_TIMES = 2
 RETRY_HTTP_CODES = [429, 302, 500, 503]
