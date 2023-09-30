@@ -31,9 +31,9 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 32
 RETRY_ENABLED = True
-RETRY_TIMES = 3
+RETRY_TIMES = 2
 RETRY_HTTP_CODES = [429, 302, 500, 503]
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -103,4 +103,4 @@ RETRY_HTTP_CODES = [429, 302, 500, 503]
 # Set settings whose default value is deprecated to a future-proof value
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 FEED_EXPORT_ENCODING = "utf-8"
-FEEDS = {"data5.csv": {"format": "csv"}}
+FEEDS = {"data6.csv": {"format": "csv"}}
